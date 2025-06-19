@@ -42,7 +42,7 @@
     <hr class="my-4">
 
    <!-- Formulario para crear nuevo ponente -->
-<form action="{{ route('ponentes.store') }}" method="POST" class="mb-4">
+<form action="{{ url('/ponentes-vista') }}" method="POST" class="mb-4">
     @csrf
     <div class="row">
         <div class="col-md-4">
