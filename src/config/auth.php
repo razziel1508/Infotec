@@ -13,10 +13,11 @@ return [
     |
     */
 
-    'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
-    ],
+   'defaults' => [
+'guard' => 'api',
+'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -34,13 +35,17 @@ return [
     | Supported: "session"
     |
     */
+'guards' => [
+'web' => [
+'driver' => 'session',
+'provider' => 'users',
+],
+'api' => [
+'driver' => 'keycloak', // usa el guard de Keycloak
+'provider' => 'users',
+],
+],
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-    ],
 
     /*
     |--------------------------------------------------------------------------
